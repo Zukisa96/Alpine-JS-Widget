@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="greet.js"></script>
+    <script src="greet-widget.js" defer></script>
+
+
+    <script src="transport_fee.js"></script>
+    <script src="transport-fee-widget.js"></script>
+
+    <script src="total_phone_bills.js"></script>
+    <script src="total-phone-widget.js"></script>
+
+    <script src="enough_airtime.js"></script>
+    <script src="enough-airtime-widget.js"></script>
+
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div><h1 ><i>Widgets Collection</i></h1></div>
+    <div class="widgets">
+
+        <div class="widget" x-data="greetwidget">
+            <h3 style="background-color: whitesmoke; color: blue; size: 35em;text-align: center;">Greet Widget</h3>
+            <div x-show="message.length > 0" class="message" x-text="message">
+                You will be greeted here.....
+            </div>
+            <div class="insert">
+                <label for="name">Enter your name: </label>
+                <input type="text" placeholder="e.g Brutus Mudau"  x-model="name" id="name">
+            </div>
+            <div class="pressed"><button x-on:click="greetMe">Greet!</button></div>
+            
+        </div>
+        
+        <div class="widget" x-data="enoughairtime">
+            <h3 style="background-color: whitesmoke; color: blue; size: 35em;text-align: center;">Enough Airtime</h3>
+    
+            <div x-show="airtimeMessage.length > 0" class="message" x-text="airtimeMessage">
+                Airtime message will be displayed here...
+            </div>
+    
+            <div class="insert">
+                <label for="usage">Enter Airtime: </label>
+                <input type="text" placeholder="e.g call,sms"  x-model="item" id="usage"> 
+            </div>
+            <div class="insert">
+                <label for="amount">Amount </label>
+                <input type="text" placeholder="e.g 20" x-model="airtime" id="amount"> 
+            </div>
+            <div class="pressed">
+                <button x-on:click="Calculate">Check Airtime Usage</button>
+            </div>
+        </div>
+
+        <div class="widget" x-data="transportwidget">
+            <h3 style="background-color: whitesmoke; color: blue; size: 35em;text-align: center;">Transport Fee</h3>
+            <div x-show="shiftMessage.length > 0" class="message" x-text="shiftMessage">
+                you will find shift price displayed here
+            </div>
+            <div class="insert"><label for="shift">Enter shift</label>
+                <input type="text" placeholder="e.g morning/afternoon/night"  x-model="shift" id="shift">
+            </div>
+            <div class="pressed"><button x-on:click="shiftprice">Check Price</button></div>
+        </div>
+
+        <div class="widget" x-data="totalphonewidget">
+            <h3 style="background-color: whitesmoke; color: blue; size: 35em;" >Total phone bills</h3>
+            <div x-show="billMessage.length > 0" class="message" x-text="billMessage">
+                you will find shift price displayed here
+            </div>
+            <div class="insert">
+                <label for="bill"> enter Your phone bill request </label>
+                <input type="text" placeholder=" e.g call,sms" x-model="bill" id="bill">
+            </div>
+            <div class="pressed"><button x-on:click="phoneBill">Check Bill</button></div>
+            
+        </div>
+
+    </div>
+
+</body>
+</html>
